@@ -1,428 +1,1282 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Chaitanyaprasad kulkarni</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chaitanyaprasad Kulkarni — AI & Systems Engineer | Portfolio</title>
+  <meta name="description" content="Personal portfolio of Chaitanyaprasad Kulkarni — Tool Developer Intern at BorgWarner, B.E. Computer Science Engineering student at NIE Mysuru. Specializing in Distributed Multi-Agent Systems, Computer Vision Telemetry, and MLOps." />
+  <meta name="keywords" content="Chaitanyaprasad Kulkarni, AI Engineer, Systems Engineer, Tool Developer, BorgWarner, Multiagentsweep, Computer Vision, Football Analytics, MLOps, NIE Mysuru" />
+  <meta name="author" content="Chaitanyaprasad Kulkarni" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+
+  <!-- Three.js & OrbitControls for 3D Interactive Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <!-- Ambient Atmospheric Background Elements -->
+  <div class="ambient-background">
+    <div class="ambient-grid"></div>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Interactive Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+
+  <!-- Floating Navigation Header -->
+  <header class="site-header">
+    <nav class="nav-shell">
+      <a href="#hero" class="nav-brand" aria-label="Chaitanyaprasad Home">
+        <div class="brand-badge">&lt;CPK /&gt;</div>
+        <span>Chaitanyaprasad</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Overview</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#simulators">Simulators</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="audio-toggle-btn" class="action-btn" title="Toggle Sci-Fi Web Audio FX">
+          <span>🔇</span> Sound: OFF
+        </button>
+
+        <button class="action-btn launch-terminal-trigger" title="Launch Interactive Terminal (Cmd+K)">
+          <span>💻</span> CLI <span class="terminal-key-badge">⌘K</span>
+        </button>
+
+        <button class="action-btn" onclick="window.openDigitalCV()" title="View Europass CV">
+          <span>📄</span> CV
+        </button>
+
+        <button id="hamburger-toggle" class="hamburger-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Chaitanyaprasad kulkarni</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <a href="#hero">Overview</a>
+    <a href="#about">About Me</a>
+    <a href="#experience">Experience (BorgWarner)</a>
+    <a href="#projects">Flagship Projects</a>
+    <a href="#simulators">Interactive Simulators</a>
+    <a href="#skills">Skills Matrix</a>
+    <a href="#education">Education & Academics</a>
+    <a href="#contact">Contact & Socials</a>
+    <button class="btn-primary launch-terminal-trigger" style="margin-top:0.5rem; justify-content:center;">
+      Launch CLI Terminal
+    </button>
+  </div>
+
+  <!-- ======================================================================
+       HERO SECTION & 3D INTERACTIVE CANVAS
+       ====================================================================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="status-pulse"></span>
+            TOOL DEVELOPER INTERN @ BORGWARNER · 2026 BATCH
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <br />
+            <span class="gradient-name">Chaitanyaprasad Kulkarni</span>
+          </h1>
+
+          <div class="hero-typewriter-wrapper">
+            <span>&gt; </span>
+            <span id="hero-typewriter">AI & Systems Engineer</span>
+            <span class="typewriter-cursor"></span>
+          </div>
+
+          <p class="hero-bio">
+            Engineering <strong>autonomous distributed multi-agent systems</strong>, enterprise licensing & internal tools at <strong>BorgWarner</strong>, and real-time <strong>computer vision telemetry pipelines</strong>. Passionate about AST code comprehension, token optimization, and end-to-end MLOps.
+          </p>
+
+          <div class="hero-badges-row">
+            <div class="hero-chip"><strong>16</strong> Agent Swarm</div>
+            <div class="hero-chip"><strong>-85%</strong> Token Cost</div>
+            <div class="hero-chip"><strong>97.6%</strong> F1 Threat Score</div>
+            <div class="hero-chip"><strong>8.13</strong> CGPA @ NIE</div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#simulators" class="btn-primary">
+              <span>🚀</span> Launch Swarm Sim
+            </a>
+            <button class="btn-secondary" onclick="window.openDigitalCV()">
+              <span>📄</span> View CV
+            </button>
+            <button class="btn-tertiary launch-terminal-trigger">
+              <span>💻</span> Open Terminal (⌘K)
+            </button>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com/Chaitanya210904" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Profile">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/chaitanyaprasad210904/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn Profile">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:chaitanyapk2109@gmail.com" class="social-icon-btn" title="Send Email">
+              <svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-8.713h23.97l-11.985 8.713zm0 2.574l-12-8.725v13.438h24v-13.438l-12 8.725z"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Skill</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Chaitanyaprasad kulkarni profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Chaitanyaprasad kulkarni</h1>
-        <p class="section__text__p2">Data Enthusiat</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume100.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/chaitanyaprasad210904/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Chaitanya210904'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3></h3>
-              <p>The National Insitute of Engineering<br>2026</p>
+
+        <!-- 3D Interactive Model Viewport -->
+        <div class="hero-3d-wrapper">
+          <div class="canvas-header-bar">
+            <div class="canvas-tag">16-Agent Autonomous Swarm</div>
+            <div class="canvas-node-status">WebGL Core Active · 60 FPS</div>
+          </div>
+
+          <canvas id="hero-3d-canvas"></canvas>
+          <div id="3d-node-tooltip" class="node-tooltip"></div>
+
+          <div class="canvas-bottom-bar">
+            <div class="model-mode-selector">
+              <button class="mode-btn active" data-mode="swarm">🛰️ Swarm</button>
+              <button class="mode-btn" data-mode="neural">🧠 Neural</button>
+              <button class="mode-btn" data-mode="telemetry">⚽ CV Field</button>
             </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.E. Bachelors Degree<br />Computer Science Engineering</p>
+            <div style="display:flex; gap:0.4rem;">
+              <button id="canvas-pulse-btn" class="canvas-action-btn" title="Trigger Holographic Shockwave">
+                💥 Pulse
+              </button>
+              <button id="canvas-autorotate-btn" class="canvas-action-btn">
+                Auto-Rotate: ON
+              </button>
             </div>
           </div>
-          <div class="text-container">
-            <p>
-              Driven Computer Science student with hands-on experience in building secure, scalable AI pipelines using MLOps. Skilled in Python, Docker, FastAPI, and AWS, with a strong foundation in data science and cybersecurity. Designed and deployed a cloud-ready phishing detection pipeline, improving threat identification and data integrity. Proficient in end-to-end data workflows, automation, and modular design. Passionate about solving real-world problems through innovation and collaboration, bridging technology and product development for impactful, high-performance results
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ======================================================================
+       METRICS & HIGHLIGHTS BANNER
+       ====================================================================== -->
+  <div class="stats-banner">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">16</div>
+          <div class="stat-label">Distributed Autonomous Agents</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">-85%</div>
+          <div class="stat-label">AI Inference Cost Reduction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">97.6%</div>
+          <div class="stat-label">Threat Detection F1-Score</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8.13</div>
+          <div class="stat-label">CGPA @ NIE Mysuru (EQF 6)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       ABOUT SECTION
+       ====================================================================== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-tag">Background & Identity</div>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        Bridging autonomous distributed AI agent networks, enterprise software development, and real-time computer vision algorithms.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card-left">
+          <div class="profile-frame">
+            <img src="./assets/profile-pic.png" alt="Chaitanyaprasad Kulkarni" class="profile-img" />
+            <div class="profile-overlay-tag">
+              <div>
+                <div class="tag-title">Chaitanyaprasad Kulkarni</div>
+                <div class="tag-sub">Bengaluru, Karnataka, India</div>
+              </div>
+              <span class="status-pulse"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card-right">
+          <p class="about-text">
+            I am a Computer Science and Engineering undergraduate at <strong>The National Institute of Engineering (NIE), Mysuru</strong> (Graduating 2026), currently working as a <strong>Tool Developer Intern at BorgWarner</strong>. 
+          </p>
+          <p class="about-text">
+            My engineering work is rooted in building resilient, high-throughput systems: from orchestrating <strong>16-agent distributed AST code analysis engines</strong> with zero false positives, to building enterprise licensing architectures with offline caching, and designing <strong>Lucas-Kanade optical-flow stabilized computer vision pipelines</strong> for broadcast sports telemetry.
+          </p>
+
+          <div class="highlight-badge-grid">
+            <div class="highlight-card">
+              <div class="highlight-icon">💼</div>
+              <div>
+                <div class="highlight-title">Tool Developer Intern</div>
+                <div class="highlight-desc">BorgWarner (08/01/2026 – Present)<br />Bangalore, India</div>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon">🎓</div>
+              <div>
+                <div class="highlight-title">B.E. Computer Science</div>
+                <div class="highlight-desc">The National Institute of Engineering<br />Final Grade: 8.13 CGPA (EQF Level 6)</div>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon">🤖</div>
+              <div>
+                <div class="highlight-title">Agentic AI & MLOps</div>
+                <div class="highlight-desc">Multi-Agent AST Parsing, Azure OpenAI, Token Governance, KS-test Data Drift</div>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon">🌐</div>
+              <div>
+                <div class="highlight-title">Languages</div>
+                <div class="highlight-desc">English (C1 Proficient / Working)<br />Kannada (Native Mother Tongue)</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <button class="btn-primary" onclick="window.openDigitalCV()">
+              <span>📄</span> Open Europass CV Viewer
+            </button>
+            <a href="./assets/resume100.pdf" download="Chaitanyaprasad_Kulkarni_CV.pdf" class="btn-secondary">
+              <span>⬇️</span> Download PDF CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       WORK EXPERIENCE SECTION (BORGWARNER DEEP DIVE)
+       ====================================================================== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-tag">Industry Experience</div>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">
+        Enterprise tool engineering, AI automation platforms, and full-stack cloud portals deployed at scale.
+      </p>
+
+      <div class="experience-timeline">
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-company-block">
+              <div class="company-logo-badge">BW</div>
+              <div>
+                <h3 class="exp-role-title">Tool Developer Intern</h3>
+                <div class="exp-company-name">BorgWarner</div>
+              </div>
+            </div>
+            <div class="exp-meta-block">
+              <div class="exp-period">08/01/2026 – Present</div>
+              <div class="exp-location">Bangalore, Karnataka, India</div>
+            </div>
+          </div>
+
+          <!-- Enterprise Pillars Grid -->
+          <div class="exp-pillars-grid">
+            <div class="pillar-item">
+              <span class="pillar-badge">CORE INFRASTRUCTURE</span>
+              <h4 class="pillar-title">Centralized License Management System</h4>
+              <p class="pillar-desc">
+                Architected and deployed a centralized enterprise licensing server using Python, C# .NET, and PostgreSQL. Handles license validation, active session tracking, offline caching, and usage monitoring under intermittent network conditions.
+              </p>
+              <div class="pillar-tags">
+                <span class="mini-tag">Python</span>
+                <span class="mini-tag">C# .NET</span>
+                <span class="mini-tag">PostgreSQL</span>
+                <span class="mini-tag">Offline Caching</span>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <span class="pillar-badge">WEB APPLICATION</span>
+              <h4 class="pillar-title">Internal Application Store Portal</h4>
+              <p class="pillar-desc">
+                Built and shipped an internal enterprise Application Store with Next.js and PostgreSQL. Implemented Multi-Factor Authentication (MFA), role-based approval workflows, email automation notifications, and application lifecycle governance.
+              </p>
+              <div class="pillar-tags">
+                <span class="mini-tag">Next.js</span>
+                <span class="mini-tag">PostgreSQL</span>
+                <span class="mini-tag">MFA Security</span>
+                <span class="mini-tag">Email Automation</span>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <span class="pillar-badge">GENAI PLATFORM</span>
+              <h4 class="pillar-title">PolarAI: AI Automation Platform</h4>
+              <p class="pillar-desc">
+                Developed PolarAI, an enterprise AI platform integrated with Polarion ALM and Azure OpenAI for automated software requirements generation and test case synthesis, cutting manual engineering effort drastically.
+              </p>
+              <div class="pillar-tags">
+                <span class="mini-tag">Azure OpenAI</span>
+                <span class="mini-tag">Polarion ALM</span>
+                <span class="mini-tag">Python SDK</span>
+                <span class="mini-tag">Test Synthesis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detailed Bullets -->
+          <ul class="exp-bullet-list">
+            <li>
+              <span class="bullet-icon">⚡</span>
+              <span><strong>Enterprise SDK Engineering:</strong> Built reusable, production-ready Python SDK components communicating with Polarion WSDL/SOAP services to automate work-item operations.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">⚡</span>
+              <span><strong>Online-Offline Sync:</strong> Implemented bidirectional data synchronization and network connectivity validation routines to guarantee software availability and license integrity.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">⚡</span>
+              <span><strong>LLM Token Optimization:</strong> Designed conversation memory management, prompt context compaction, and XML parsing pipelines to maximize GenAI throughput and minimize token consumption.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">⚡</span>
+              <span><strong>Zero-Downtime Reliability:</strong> Hardened internal toolchains with session caching, automated unit testing, and robust error recovery patterns.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FLAGSHIP PROJECTS SECTION
+       ====================================================================== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-tag">Production Engineering</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        High-performance open-source platforms and computer vision systems built with rigor, high test coverage, and benchmarked metrics.
+      </p>
+
+      <div class="projects-grid">
+        <!-- Project 1: Multiagentsweep -->
+        <article class="project-feature-card">
+          <div class="project-visual-side">
+            <img src="./assets/multiagentsweep.jpg" alt="Multiagentsweep 16-Agent Swarm Platform" class="project-banner-img" />
+            <div class="project-visual-overlay">
+              <span class="visual-badge">16-AGENT DISTRIBUTED SWARM · 134 PASSING TESTS</span>
+            </div>
+          </div>
+
+          <div class="project-info-side">
+            <div class="project-dates">01/11/2025 – 01/01/2026</div>
+            <h3 class="project-heading">Multiagentsweep — Autonomous Multi-Agent Codebase Comprehension Platform</h3>
+            <p class="project-summary">
+              An open-source, 16-agent distributed platform that autonomously parses, audits, and visualizes complex software repositories. Fuses deterministic Abstract Syntax Tree (AST) code property graphs with autonomous agents for SAST security scanning, architectural blast-radius calculation, and real-time token governance.
+            </p>
+
+            <div class="project-metrics-box">
+              <div>
+                <div class="metric-val">-85%</div>
+                <div class="metric-desc">Inference Cost (Task Down-Routing)</div>
+              </div>
+              <div>
+                <div class="metric-val">-30%</div>
+                <div class="metric-desc">False Positives (Adversarial Gate)</div>
+              </div>
+              <div>
+                <div class="metric-val">134</div>
+                <div class="metric-desc">Passing Automated Tests</div>
+              </div>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">AST Code Property Graphs</span>
+              <span class="tech-tag">SAST Security</span>
+              <span class="tech-tag">Live SSE Telemetry</span>
+              <span class="tech-tag">Force-Directed Canvas</span>
+              <span class="tech-tag">Token Governance</span>
+            </div>
+
+            <div class="project-action-row">
+              <a href="https://github.com/Chaitanya210904/Multiagentsweep.git" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>⭐</span> GitHub Repository
+              </a>
+              <a href="#simulators" class="btn-secondary">
+                <span>🛰️</span> Live Swarm Simulator
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Football Analytics & Player Telemetry -->
+        <article class="project-feature-card reverse">
+          <div class="project-visual-side">
+            <img src="./assets/football-analytics.jpg" alt="Computer Vision Football Analytics Telemetry" class="project-banner-img" />
+            <div class="project-visual-overlay">
+              <span class="visual-badge">YOLO + BYTETRACK + LUCAS-KANADE OPTICAL FLOW</span>
+            </div>
+          </div>
+
+          <div class="project-info-side">
+            <div class="project-dates">01/03/2025 – 31/05/2025</div>
+            <h3 class="project-heading">Computer Vision System for Automated Football Analytics & Player Telemetry</h3>
+            <p class="project-summary">
+              Comprehensive Computer Vision and Machine Learning solution for tactical analysis of broadcast soccer matches. Uses Ultralytics YOLO with ByteTrack for multi-object tracking, Lucas-Kanade optical flow to eliminate camera panning distortion, and perspective homography to map pixel positions onto real-world metric pitch coordinates.
+            </p>
+
+            <div class="project-metrics-box">
+              <div>
+                <div class="metric-val">Real-Time</div>
+                <div class="metric-desc">Kinematic Speed {km/h} & Distance {m}</div>
+              </div>
+              <div>
+                <div class="metric-val">2-Tier</div>
+                <div class="metric-desc">K-Means Jersey Clustering</div>
+              </div>
+              <div>
+                <div class="metric-val">100%</div>
+                <div class="metric-desc">Camera Panning Compensation</div>
+              </div>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Ultralytics YOLO</span>
+              <span class="tech-tag">ByteTrack</span>
+              <span class="tech-tag">Lucas-Kanade Flow</span>
+              <span class="tech-tag">Perspective Homography</span>
+              <span class="tech-tag">Flask Web UI</span>
+            </div>
+
+            <div class="project-action-row">
+              <a href="https://github.com/Chaitanya210904/Football-Player-Analysis.git" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>⚽</span> GitHub Repository
+              </a>
+              <a href="#simulators" class="btn-secondary">
+                <span>📊</span> Pitch Telemetry Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: End-to-End Phishing Detection & MLOps Platform -->
+        <article class="project-feature-card">
+          <div class="project-visual-side">
+            <img src="./assets/project-1.png" alt="End-to-End Phishing Detection & MLOps Platform" class="project-banner-img" />
+            <div class="project-visual-overlay">
+              <span class="visual-badge">97.6% F1-SCORE · KS-TEST DATA DRIFT · FASTAPI</span>
+            </div>
+          </div>
+
+          <div class="project-info-side">
+            <div class="project-dates">01/08/2024 – 31/10/2024</div>
+            <h3 class="project-heading">End-to-End Phishing Detection & MLOps Platform</h3>
+            <p class="project-summary">
+              Production-ready MLOps classification system evaluating 30+ URL and network attributes to identify phishing threats. Features automated ETL via MongoDB Atlas, Kolmogorov-Smirnov (KS-test) data drift detection, and KNN imputation. Integrated MLflow/DagsHub for experiment tracking and served real-time batch predictions via a containerized FastAPI REST API.
+            </p>
+
+            <div class="project-metrics-box">
+              <div>
+                <div class="metric-val">97.6%</div>
+                <div class="metric-desc">Ensemble Classifier F1-Score</div>
+              </div>
+              <div>
+                <div class="metric-val">30+</div>
+                <div class="metric-desc">URL & Network Attributes Analyzed</div>
+              </div>
+              <div>
+                <div class="metric-val">Docker</div>
+                <div class="metric-desc">Containerized FastAPI REST API</div>
+              </div>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-Learn</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">MongoDB Atlas</span>
+              <span class="tech-tag">MLflow / DagsHub</span>
+              <span class="tech-tag">KS-Test Drift</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+
+            <div class="project-action-row">
+              <a href="https://github.com/Chaitanya210904/Networksecurity.git" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>🛡️</span> GitHub Repository
+              </a>
+              <a href="#simulators" class="btn-secondary">
+                <span>🧪</span> Threat Detector Sandbox
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       LIVE INTERACTIVE SIMULATORS SECTION
+       ====================================================================== -->
+  <section id="simulators">
+    <div class="container">
+      <div class="section-tag">Interactive Tech Labs</div>
+      <h2 class="section-title">Hands-on Simulators</h2>
+      <p class="section-subtitle">
+        Explore live interactive simulations of Chaitanyaprasad's flagship engineering platforms directly in the browser.
+      </p>
+
+      <div class="simulators-shell">
+        <div class="sim-nav-tabs">
+          <button class="sim-tab-btn active" data-target="panel-swarm">
+            <span>🛰️</span> 16-Agent Swarm Audit (Multiagentsweep)
+          </button>
+          <button class="sim-tab-btn" data-target="panel-pitch">
+            <span>⚽</span> Tactical Telemetry Matrix (Football CV)
+          </button>
+          <button class="sim-tab-btn" data-target="panel-phishing">
+            <span>🛡️</span> MLOps Phishing Risk Analyzer
+          </button>
+        </div>
+
+        <!-- Simulator Panel 1: Swarm Graph -->
+        <div id="panel-swarm" class="sim-panel active">
+          <div class="swarm-sim-grid">
+            <div class="swarm-canvas-container">
+              <canvas id="swarm-canvas"></canvas>
+              <div class="swarm-controls-bar">
+                <button id="dispatch-swarm-btn" class="btn-primary" style="padding:0.5rem 1.1rem; font-size:0.85rem;">
+                  <span>▶</span> Dispatch 16-Agent Swarm
+                </button>
+                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);">
+                  16 Nodes · AST Code Property Graph
+                </span>
+              </div>
+            </div>
+
+            <div class="telemetry-terminal-shell">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="terminal-title">sse://multiagentsweep.live/telemetry</div>
+                <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">CONNECTED</span>
+              </div>
+              <div id="swarm-terminal-logs" class="terminal-logs">
+                <div class="log-line log-info">[STATUS] Swarm in standby. Click "Dispatch 16-Agent Swarm" to simulate AST code comprehension pipeline...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Panel 2: Pitch Telemetry -->
+        <div id="panel-pitch" class="sim-panel">
+          <div class="pitch-sim-grid">
+            <div class="pitch-interactive-box">
+              <canvas id="pitch-canvas"></canvas>
+            </div>
+
+            <div class="pitch-telemetry-dashboard">
+              <div style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:#fff;">
+                Player Kinematic Telemetry
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">Metric Field Homography (X, Y)</span>
+                <span id="telem-coord" class="telemetry-val">(34.2m, 18.5m)</span>
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">Instantaneous Sprint Speed</span>
+                <span id="telem-speed" class="telemetry-val">28.4 km/h</span>
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">Lucas-Kanade Camera Panning Vector</span>
+                <span id="telem-flow" class="telemetry-val">Δx: -0.42px, Δy: +0.11px</span>
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">Estimated Distance Traversed</span>
+                <span id="telem-dist" class="telemetry-val">412.5 m</span>
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">K-Means Jersey Cluster</span>
+                <span class="telemetry-val" style="color:#38bdf8;">Team Sky Blue (99.4%)</span>
+              </div>
+
+              <div class="telemetry-row">
+                <span class="telemetry-label">Tracker Algorithm</span>
+                <span class="telemetry-val" style="color:var(--emerald);">ByteTrack (Zero-Dropout)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Panel 3: Phishing Detector -->
+        <div id="panel-phishing" class="sim-panel">
+          <div class="phishing-sim-box">
+            <div class="url-input-group">
+              <input type="text" id="url-test-input" class="url-input" placeholder="Enter any URL to evaluate (e.g. paypal-security-update.com)" value="paypal-security-update.com" />
+              <button id="evaluate-url-btn" class="btn-primary" style="padding:0.75rem 1.4rem;">
+                Scan Risk
+              </button>
+            </div>
+
+            <div class="preset-url-row">
+              <span class="preset-label">Test Samples:</span>
+              <button class="preset-pill" data-url="paypal-security-update.com">paypal-security-update.com</button>
+              <button class="preset-pill" data-url="https://github.com/Chaitanya210904">github.com/Chaitanya210904</button>
+              <button class="preset-pill" data-url="https://nie.ac.in">nie.ac.in</button>
+              <button class="preset-pill" data-url="account-verify-login.xyz">account-verify-login.xyz</button>
+            </div>
+
+            <div class="threat-results-card">
+              <div class="threat-score-gauge">
+                <div id="threat-circle" class="score-circle">
+                  <div id="threat-score-num" class="score-num">96%</div>
+                </div>
+                <div id="threat-score-status" class="score-status">MALICIOUS THREAT</div>
+                <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-dim); margin-top:4px;">
+                  Model F1: 97.6% (Ensemble)
+                </span>
+              </div>
+
+              <div class="feature-analysis-grid">
+                <div class="feature-pill">
+                  <span class="feature-name">URL Length:</span>
+                  <span id="feat-len" class="feature-state state-danger">Flagged (>48 chars)</span>
+                </div>
+                <div class="feature-pill">
+                  <span class="feature-name">Shannon Entropy:</span>
+                  <span id="feat-entropy" class="feature-state state-danger">High (4.82 bits)</span>
+                </div>
+                <div class="feature-pill">
+                  <span class="feature-name">Subdomain Count:</span>
+                  <span id="feat-sub" class="feature-state state-danger">3 Subdomains</span>
+                </div>
+                <div class="feature-pill">
+                  <span class="feature-name">Kolmogorov-Smirnov Drift:</span>
+                  <span id="feat-drift" class="feature-state state-danger">KS Drift (p < 0.01)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SKILLS MATRIX SECTION
+       ====================================================================== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-tag">Competencies</div>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <p class="section-subtitle">
+        Curated tools, frameworks, and engineering methodologies backed by verified project implementation.
+      </p>
+
+      <div class="skills-controls-row">
+        <div class="skills-filter-tabs">
+          <button class="skill-tab-btn active" data-cat="all">All (20)</button>
+          <button class="skill-tab-btn" data-cat="ai">AI / ML & CV</button>
+          <button class="skill-tab-btn" data-cat="systems">Backend & Systems</button>
+          <button class="skill-tab-btn" data-cat="cloud">DevOps & Cloud</button>
+          <button class="skill-tab-btn" data-cat="languages">Languages & Core CS</button>
+        </div>
+
+        <div class="skills-search-box">
+          <svg class="search-icon-svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="skills-search-input" class="skills-search-input" placeholder="Search skills (e.g. Python, Docker, YOLO)..." />
+        </div>
+      </div>
+
+      <div id="skills-grid" class="skills-cards-grid">
+        <!-- Skill 1 -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-card-top">
+            <span class="skill-title">Python</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">Primary language for autonomous agent distributed systems, SDK components, and computer vision pipelines.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+          <div class="skill-footer-meta"><span>Applied at BorgWarner & Multiagentsweep</span><span>95%</span></div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card" data-category="ai">
+          <div class="skill-card-top">
+            <span class="skill-title">Computer Vision & YOLO</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">Ultralytics YOLO, ByteTrack multi-object tracking, Lucas-Kanade optical flow, and homography metric projection.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+          <div class="skill-footer-meta"><span>Football Analytics Telemetry</span><span>92%</span></div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card" data-category="ai">
+          <div class="skill-card-top">
+            <span class="skill-title">Multi-Agent Systems & LLMs</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">16-agent distributed topologies, AST Code Property Graphs, task down-routing, token governance, Azure OpenAI.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+          <div class="skill-footer-meta"><span>Multiagentsweep & PolarAI</span><span>94%</span></div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card" data-category="systems">
+          <div class="skill-card-top">
+            <span class="skill-title">C# .NET</span>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <p class="skill-desc">Centralized License Management System engineering, desktop clients, offline caching, session tracking at BorgWarner.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 86%;"></div></div>
+          <div class="skill-footer-meta"><span>BorgWarner Enterprise Tools</span><span>86%</span></div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card" data-category="systems">
+          <div class="skill-card-top">
+            <span class="skill-title">Next.js & React</span>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <p class="skill-desc">Built enterprise internal Application Store Portal with Multi-Factor Authentication, approval workflows, and email automation.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+          <div class="skill-footer-meta"><span>BorgWarner App Store</span><span>88%</span></div>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="skill-card" data-category="cloud">
+          <div class="skill-card-top">
+            <span class="skill-title">PostgreSQL</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">Relational database architecture, relational schema optimization, ACID transactions, and offline-online synchronization.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+          <div class="skill-footer-meta"><span>Licensing & App Store Portal</span><span>90%</span></div>
+        </div>
+
+        <!-- Skill 7 -->
+        <div class="skill-card" data-category="cloud">
+          <div class="skill-card-top">
+            <span class="skill-title">Docker & Containerization</span>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <p class="skill-desc">Containerized microservices, multi-stage builds, FastAPI deployments, and local development environments.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+          <div class="skill-footer-meta"><span>Phishing MLOps Deployment</span><span>88%</span></div>
+        </div>
+
+        <!-- Skill 8 -->
+        <div class="skill-card" data-category="ai">
+          <div class="skill-card-top">
+            <span class="skill-title">MLOps, MLflow & DagsHub</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">Automated ETL pipelines, Kolmogorov-Smirnov data drift tests, KNN imputation, experiment tracking, and model registries.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 91%;"></div></div>
+          <div class="skill-footer-meta"><span>Network Security Platform</span><span>91%</span></div>
+        </div>
+
+        <!-- Skill 9 -->
+        <div class="skill-card" data-category="systems">
+          <div class="skill-card-top">
+            <span class="skill-title">FastAPI & REST APIs</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">High-throughput asynchronous APIs, Pydantic data validation, SSE (Server-Sent Events) live streaming telemetry.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+          <div class="skill-footer-meta"><span>Multiagentsweep & MLOps</span><span>92%</span></div>
+        </div>
+
+        <!-- Skill 10 -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-card-top">
+            <span class="skill-title">C & C++</span>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <p class="skill-desc">Core data structures, algorithm implementation, memory management, and low-level computer science foundations.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+          <div class="skill-footer-meta"><span>NIE Mysuru Academics</span><span>85%</span></div>
+        </div>
+
+        <!-- Skill 11 -->
+        <div class="skill-card" data-category="cloud">
+          <div class="skill-card-top">
+            <span class="skill-title">Git, GitHub & GitLab</span>
+            <span class="skill-level-badge">Advanced</span>
+          </div>
+          <p class="skill-desc">Version control, enterprise branching workflows, CI/CD automated test verification pipelines, and open-source management.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+          <div class="skill-footer-meta"><span>Industry & Open Source</span><span>95%</span></div>
+        </div>
+
+        <!-- Skill 12 -->
+        <div class="skill-card" data-category="cloud">
+          <div class="skill-card-top">
+            <span class="skill-title">MongoDB Atlas</span>
+            <span class="skill-level-badge">Proficient</span>
+          </div>
+          <p class="skill-desc">NoSQL document stores, automated ETL ingestion pipelines, schema modeling, and cloud database administration.</p>
+          <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 86%;"></div></div>
+          <div class="skill-footer-meta"><span>Network Security Platform</span><span>86%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       EDUCATION & ACADEMICS SECTION
+       ====================================================================== -->
+  <section id="education">
+    <div class="container">
+      <div class="section-tag">Academic Credentials</div>
+      <h2 class="section-title">Education & Training</h2>
+      <p class="section-subtitle">
+        Rigorous academic foundation in Computer Science, Discrete Mathematics, Distributed Systems, and Machine Learning.
+      </p>
+
+      <div class="education-timeline">
+        <!-- Education 1 -->
+        <div class="edu-card">
+          <div class="edu-timeframe">
+            <span class="edu-period-badge">09/12/2022 – 31/10/2026</span>
+            <div class="edu-location">Mysuru, Karnataka, India</div>
+          </div>
+          <div>
+            <h3 class="edu-degree">Bachelor of Engineering (B.E.) in Computer Science and Engineering</h3>
+            <div class="edu-institution">
+              <a href="https://nie.ac.in" target="_blank" rel="noopener noreferrer">The National Institute of Engineering (NIE), Mysuru ↗</a>
+            </div>
+            <div class="edu-metrics-pills">
+              <span class="edu-metric-pill">Final Grade: <strong>8.13 CGPA</strong></span>
+              <span class="edu-metric-pill">EQF Level: <strong>Level 6</strong></span>
+              <span class="edu-metric-pill">Field: <strong>Computer Science & Engineering</strong></span>
+            </div>
+            <p class="edu-coursework">
+              <strong>Core Coursework:</strong> Data Structures and Algorithms, Database Management Systems, Operating Systems, Computer Networks, Machine Learning, Artificial Intelligence, Software Engineering, Object-Oriented Programming, Theory of Computation, Compiler Design.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 2 -->
+        <div class="edu-card">
+          <div class="edu-timeframe">
+            <span class="edu-period-badge">01/06/2020 – 31/05/2022</span>
+            <div class="edu-location">Mangalore, Karnataka, India</div>
+          </div>
+          <div>
+            <h3 class="edu-degree">Pre-University Course (PCMB)</h3>
+            <div class="edu-institution">
+              <a href="https://expertedu.co.in/valachil/" target="_blank" rel="noopener noreferrer">Expert Group of Institutions, Valachil ↗</a>
+            </div>
+            <div class="edu-metrics-pills">
+              <span class="edu-metric-pill">Field of Study: <strong>Science (Physics, Chemistry, Mathematics, Biology)</strong></span>
+            </div>
+            <p class="edu-coursework">
+              Intensive analytical foundation in advanced calculus, mechanics, electromagnetism, and algorithmic problem-solving.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 3 -->
+        <div class="edu-card">
+          <div class="edu-timeframe">
+            <span class="edu-period-badge">01/06/2016 – 30/04/2020</span>
+            <div class="edu-location">Mysore, Karnataka, India</div>
+          </div>
+          <div>
+            <h3 class="edu-degree">Secondary School Leaving Certificate (SSLC)</h3>
+            <div class="edu-institution">
+              <a href="https://srkvs.org" target="_blank" rel="noopener noreferrer">Shri Ramakrishna Vidyashala, Mysore ↗</a>
+            </div>
+            <div class="edu-metrics-pills">
+              <span class="edu-metric-pill">Field of Study: <strong>General Secondary Education</strong></span>
+            </div>
+            <p class="edu-coursework">
+              Holistic residential education emphasizing mathematics, sciences, leadership, and analytical rigor.
             </p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Skills</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Software/Tools</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git, GitHub</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MLFlow</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>AWS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MS Excel </h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tableau</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-               <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CI/CD tools</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CONTACT SECTION
+       ====================================================================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Contact & Connect</h2>
+      <p class="section-subtitle">
+        Open for high-impact software engineering, AI systems, and research opportunities. Let's build something remarkable.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info-panel">
+          <!-- Email Card -->
+          <div class="contact-quick-card">
+            <div class="contact-item-left">
+              <div class="contact-item-icon">✉️</div>
+              <div>
+                <div class="contact-item-label">DIRECT EMAIL</div>
+                <a href="mailto:chaitanyapk2109@gmail.com" class="contact-item-value">chaitanyapk2109@gmail.com</a>
+              </div>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('chaitanyapk2109@gmail.com', 'Email')">
+              Copy
+            </button>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="contact-quick-card">
+            <div class="contact-item-left">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <div class="contact-item-label">MOBILE PHONE</div>
+                <a href="tel:+916362126748" class="contact-item-value">+91 6362126748</a>
+              </div>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('+916362126748', 'Phone Number')">
+              Copy
+            </button>
+          </div>
+
+          <!-- Location Card -->
+          <div class="contact-quick-card">
+            <div class="contact-item-left">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <div class="contact-item-label">RESIDENCE & WORK LOCATION</div>
+                <div class="contact-item-value" style="font-size:0.88rem;">Bengaluru, Karnataka, India (560062)</div>
+              </div>
+            </div>
+            <span class="status-pulse" style="margin-right:1rem;"></span>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="contact-quick-card">
+            <div class="contact-item-left">
+              <div class="contact-item-icon">🔗</div>
+              <div>
+                <div class="contact-item-label">LINKEDIN NETWORK</div>
+                <a href="https://www.linkedin.com/in/chaitanyaprasad210904/" target="_blank" rel="noopener noreferrer" class="contact-item-value">
+                  linkedin.com/in/chaitanyaprasad210904 ↗
+                </a>
+              </div>
             </div>
           </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>React</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Django</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MySQL</h3>
-                  <p>Intermediate<br>(Database)</p>
-                </div>
-              </article>
+
+          <!-- GitHub Card -->
+          <div class="contact-quick-card">
+            <div class="contact-item-left">
+              <div class="contact-item-icon">💻</div>
+              <div>
+                <div class="contact-item-label">GITHUB REPOSITORIES</div>
+                <a href="https://github.com/Chaitanya210904" target="_blank" rel="noopener noreferrer" class="contact-item-value">
+                  github.com/Chaitanya210904 ↗
+                </a>
+              </div>
             </div>
           </div>
-           <div class="details-container">
-            <h2 class="experience-sub-title">Machine learning</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Pandas</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Numpy</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>hyper-parameter tuning with gradientCV</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="contact-form-panel">
+          <div style="font-family:var(--font-display); font-size:1.35rem; font-weight:700; color:#fff; margin-bottom:0.75rem;">
+            Send an Inquiry
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1.5rem;">
+            Select a topic pill or type your message below to connect instantly:
+          </p>
+
+          <div class="topic-pills-row">
+            <button type="button" class="topic-pill active" data-topic="Full-Time Engineering Role (2026 Batch)">
+              💼 Hire for 2026 Role
+            </button>
+            <button type="button" class="topic-pill" data-topic="Multiagentsweep Collaboration">
+              🛰️ Multiagentsweep Collaboration
+            </button>
+            <button type="button" class="topic-pill" data-topic="Computer Vision / Telemetry Consulting">
+              ⚽ Computer Vision Systems
+            </button>
+          </div>
+
+          <form id="contact-form">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Full Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Henderson" required />
             </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Hello Chaitanyaprasad, I came across your portfolio and would love to discuss..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:0.95rem;">
+              <span>🚀</span> Dispatch Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Chaitanyaprasad Kulkarni</h3>
+          <p>AI & Systems Engineer · Tool Developer Intern @ BorgWarner · NIE Mysuru</p>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#hero">Overview</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#simulators">Simulators</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Copyright &#169; 2026 Chaitanyaprasad Kulkarni. All Rights Reserved. Built with Three.js WebGL & Vanilla Web Technologies.
+        </div>
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);">
+          IST Location: Bengaluru, Karnataka, India
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to Top of Page" title="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ======================================================================
+       INTERACTIVE TERMINAL MODAL (CMD+K)
+       ====================================================================== -->
+  <div id="terminal-modal" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="modal-title">chaitanya@core-os: ~ (Interactive CLI)</span>
+        </div>
+        <button id="close-terminal-btn" class="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="terminal-modal-content">
+        <div id="cli-output" class="cli-output">
+CHAITANYAPRASAD KULKARNI - INTERACTIVE SYSTEM TERMINAL [v2.4.0]
+Type "help" to display available commands. Press [ESC] or Cmd+K to close.
+----------------------------------------------------------------------
+        </div>
+        <div class="cli-input-line">
+          <span class="cli-prompt">chaitanya@core:~$</span>
+          <input type="text" id="cli-input" class="cli-input" placeholder="Type command (e.g. help, exp, projects, cv)..." autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       EUROPASS CV DIGITAL VIEWER MODAL
+       ====================================================================== -->
+  <div id="cv-modal" class="modal-backdrop">
+    <div class="modal-window" style="max-width: 900px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.85rem;">[EUROPASS OFFICIAL]</span>
+          <span class="modal-title">Curriculum Vitae — Chaitanyaprasad Kulkarni</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <a href="./assets/resume100.pdf" download="Chaitanyaprasad_Kulkarni_CV.pdf" class="action-btn" style="color:var(--cyan); border-color:var(--cyan);">
+            ⬇️ Download PDF
+          </a>
+          <button id="close-cv-btn" class="modal-close-btn">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="europass-sheet">
+          <div class="europass-header-grid">
+            <div>
+              <h2 style="font-family:var(--font-display); font-size:1.6rem; color:#fff; margin-bottom:0.25rem;">Chaitanyaprasad Kulkarni</h2>
+              <p style="color:var(--cyan); font-family:var(--font-mono); font-size:0.85rem; margin-bottom:0.6rem;">
+                Nationality: Indian · Location: Bengaluru, India (560062)
+              </p>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">
+                <strong>Email:</strong> chaitanyapk2109@gmail.com | <strong>Mobile:</strong> (+91) 6362126748 | (+91) 9110693938<br />
+                <strong>Address:</strong> 70 Maruthi Nilay, 1st Main Road, Maruthi Nagar, Shreya Colony, JP Nagar 7th Phase, 560062, Bengaluru, India
+              </p>
+            </div>
+            <div style="text-align:right;">
+              <span style="background:rgba(0,240,255,0.1); border:1px solid var(--border-accent); color:var(--cyan); font-family:var(--font-mono); font-size:0.75rem; padding:0.35rem 0.75rem; border-radius:999px;">
+                EQF LEVEL 6
+              </span>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="cv-section-block">
+            <h3 class="cv-section-heading">WORK EXPERIENCE</h3>
+            <div style="margin-bottom:0.75rem;">
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff; font-size:1.05rem;">TOOL DEVELOPER INTERN — BORGWARNER</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">08/01/2026 – Current | BANGALORE, INDIA</span>
+              </div>
+              <ul style="margin-top:0.5rem; margin-left:1.25rem; color:var(--text-muted); font-size:0.85rem; line-height:1.6;">
+                <li>Developed a centralized License Management System using Python, C# .NET, and PostgreSQL, including license validation, session tracking, offline caching, and usage monitoring.</li>
+                <li>Built and deployed an internal Application Store Portal using Next.js and PostgreSQL, implementing multi-factor authentication (MFA), approval workflows, email automation, and application management.</li>
+                <li>Implemented online-offline synchronization and connectivity validation to improve application availability and maintain license integrity.</li>
+                <li>Developed PolarAI, an AI-powered automation platform integrated with Polarion ALM and Azure OpenAI for automated requirements and test case generation.</li>
+                <li>Built reusable Python SDK components using Polarion WSDL/SOAP services to automate enterprise work-item operations.</li>
+                <li>Implemented token optimization, conversation memory management, and XML parsing and synchronization pipelines to improve automation efficiency.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div class="cv-section-block">
+            <h3 class="cv-section-heading">FEATURED ENGINEERING PROJECTS</h3>
+            <div style="margin-bottom:1rem;">
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">Multiagentsweep — Autonomous Multi-Agent Codebase Comprehension Platform</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">01/11/2025 – 01/01/2026</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">
+                Designed and developed an open-source, 16-agent distributed platform combining deterministic AST code property graphs with autonomous agents for SAST security scanning, blast-radius calculation, and real-time token governance. Reduced AI inference costs by up to 85% and cut false positives by over 30%, validated by 134 automated tests.
+              </p>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">End-to-End Phishing Detection & MLOps Platform</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">01/08/2024 – 31/10/2024</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">
+                Architected production-ready MLOps classification system evaluating 30+ URL/network attributes. Implemented automated ETL via MongoDB Atlas, Kolmogorov-Smirnov data drift detection, and KNN imputation, achieving a 97.6% F1-Score with containerized FastAPI REST API.
+              </p>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">Computer Vision System for Automated Football Analytics & Player Telemetry</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">01/03/2025 – 31/05/2025</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">
+                Tactical analysis of broadcast soccer matches with Python, OpenCV, and Ultralytics YOLO with ByteTrack. Eliminates camera panning distortion via Lucas-Kanade optical flow, maps player coordinates using perspective homography, and classifies jersey colors with 2-tier K-Means clustering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="cv-section-block">
+            <h3 class="cv-section-heading">EDUCATION AND TRAINING</h3>
+            <div style="margin-bottom:0.75rem;">
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">BACHELOR OF ENGINEERING IN COMPUTER SCIENCE AND ENGINEERING</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">09/12/2022 – 31/10/2026</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted);">
+                The National Institute of Engineering, Mysuru | Final grade: <strong>8.13 CGPA</strong> | Level in EQF: <strong>EQF level 6</strong>
+              </p>
+            </div>
+            <div style="margin-bottom:0.75rem;">
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">PRE-UNIVERSITY COURSE, PCMB</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">01/06/2020 – 31/05/2022</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Expert Group of Institutions, Mangalore</p>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                <strong style="color:#fff;">SECONDARY SCHOOL LEAVING CERTIFICATE (SSLC)</strong>
+                <span style="font-family:var(--font-mono); color:var(--cyan); font-size:0.8rem;">01/06/2016 – 30/04/2020</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Shri Ramakrishna Vidyashala, Mysore</p>
+            </div>
+          </div>
+
+          <!-- Language Skills -->
+          <div class="cv-section-block" style="margin-bottom:0;">
+            <h3 class="cv-section-heading">LANGUAGE SKILLS</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              <strong>Mother tongue:</strong> Kannada<br />
+              <strong>English:</strong> Listening C1, Reading B2, Spoken Production C1, Spoken Interaction C1, Writing B2 (Proficient User)
+            </p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Phishing website automation</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Chaitanya210904/Networksecurity'"
-              >
-                Github
-              </button>
-              
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">bloodbank managmnet system</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">automation trading call</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Chaitanya210904/goquant'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://drive.google.com/file/d/1bnrZcgaXmpH3hGSnQ8nqiqor71S4YpCW/view?usp=sharing'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:examplemail@gmail.com">chaitanyaprasadkulkarni4@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/chaitanyaprasad210904/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2025 Chaitanyaprasad kulkarni. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
 </html>

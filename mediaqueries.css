@@ -1,103 +1,130 @@
-@media screen and (max-width: 1400px) {
-  #profile {
-    height: 83vh;
-    margin-bottom: 6rem;
-  }
-  .about-containers {
-    flex-wrap: wrap;
-  }
-  #contact,
-  #projects {
-    height: fit-content;
-  }
-}
+/* ==========================================================================
+   CHAITANYAPRASAD KULKARNI - RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
 
 @media screen and (max-width: 1200px) {
-  #desktop-nav {
-    display: none;
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  #hamburger-nav {
+
+  .hero-3d-wrapper {
+    height: 480px;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-card-left {
     display: flex;
+    justify-content: center;
   }
-  #experience,
-  .experience-details-container {
-    margin-top: 2rem;
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
-  #profile,
-  .section-container {
-    display: block;
+
+  .project-feature-card,
+  .project-feature-card.reverse {
+    grid-template-columns: 1fr;
   }
-  .arrow {
-    display: none;
+
+  .project-feature-card.reverse .project-visual-side {
+    order: 1;
   }
-  section,
-  .section-container {
-    height: fit-content;
+
+  .project-visual-side {
+    min-height: 300px;
   }
-  section {
-    margin: 0 5%;
+
+  .exp-pillars-grid {
+    grid-template-columns: 1fr;
   }
-  .section__pic-container {
-    width: 275px;
-    height: 275px;
-    margin: 0 auto 2rem;
-  }
-  .about-containers {
-    margin-top: 0;
+
+  .exp-bullet-list {
+    grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 600px) {
-  #contact,
-  footer {
-    height: 40vh;
-  }
-  #profile {
-    height: 83vh;
-    margin-bottom: 0;
-  }
-  article {
-    font-size: 1rem;
-  }
-  footer nav {
-    height: fit-content;
-    margin-bottom: 2rem;
-  }
-  .about-containers,
-  .contact-info-upper-container,
-  .btn-container {
-    flex-wrap: wrap;
-  }
-  .contact-info-container {
-    margin: 0;
-  }
-  .contact-info-container p,
-  .nav-links li a {
-    font-size: 1rem;
-  }
-  .experience-sub-title {
-    font-size: 1.25rem;
-  }
-  .logo {
-    font-size: 1.5rem;
-  }
+@media screen and (max-width: 900px) {
   .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
+    display: none;
   }
-  .section__pic-container {
-    width: auto;
-    height: 46vw;
+
+  .hamburger-toggle {
+    display: flex;
+  }
+
+  .swarm-sim-grid,
+  .pitch-sim-grid,
+  .threat-results-card,
+  .contact-grid,
+  .edu-card {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .skills-search-box {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  section {
+    padding: 4.5rem 0 3rem;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-3d-wrapper {
+    height: 360px;
+  }
+
+  .canvas-bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .model-mode-selector {
     justify-content: center;
   }
-  .section__text__p2 {
-    font-size: 1.25rem;
+
+  .highlight-badge-grid {
+    grid-template-columns: 1fr;
   }
-  .title {
-    font-size: 2rem;
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .text-container {
-    text-align: justify;
+
+  .project-metrics-box {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none !important;
+  }
+
+  .modal-window {
+    max-height: 92vh;
   }
 }

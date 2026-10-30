@@ -1,58 +1,90 @@
-# 🌐 Chaitanyaprasad Kulkarni — Personal Portfolio Website
+# 🌐 Chaitanyaprasad Kulkarni — 3D Interactive Portfolio
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/Chaitanya210904/portfolio?style=for-the-badge&logo=github&color=blue)](https://github.com/Chaitanya210904/portfolio)
-[![GitHub stars](https://img.shields.io/github/stars/Chaitanya210904/portfolio?style=for-the-badge&color=brightgreen)](https://github.com/Chaitanya210904/portfolio/stargazers)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL_3D-00f0ff?style=for-the-badge&logo=three.js&logoColor=black)](https://threejs.org/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-Welcome to the source code repository for my personal portfolio website! This lightweight, high-performance, and responsive portfolio showcases my professional profile, technical skill set, academic background, and end-to-end projects in **Machine Learning, MLOps, Data Science, and Software Engineering**.
+Welcome to the personal interactive portfolio of **Chaitanyaprasad Kulkarni** — AI & Systems Engineer, Tool Developer Intern at **BorgWarner**, and Computer Science & Engineering undergraduate at **The National Institute of Engineering (NIE), Mysuru** (Batch of 2026, 8.13 CGPA).
 
 ---
 
 ## 📌 Table of Contents
 
-- [Overview](#-overview)
-- [✨ Key Features](#-key-features)
-- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Live Demo & Visual Highlights](#-live-demo--visual-highlights)
+- [✨ Key Features & Interactions](#-key-features--interactions)
+- [🛰️ 3D Holographic WebGL Scene](#️-3d-holographic-webgl-scene)
+- [🧪 Hands-on Interactive Simulators](#-hands-on-interactive-simulators)
+- [💻 Command-Line Terminal (Cmd+K)](#-command-line-terminal-cmdk)
+- [💼 Work Experience & Projects](#-work-experience--projects)
+- [🛠️ Tech Stack & Architecture](#️-tech-stack--architecture)
 - [📂 Project Structure](#-project-structure)
-- [🚀 Quick Start / Local Setup](#-quick-start--local-setup)
-- [💻 Portfolio Sections](#-portfolio-sections)
-- [⭐ Featured Projects Highlighted](#-featured-projects-highlighted)
-- [📱 Responsive Design](#-responsive-design)
+- [⚡ Quick Start / Local Setup](#-quick-start--local-setup)
 - [📫 Connect With Me](#-connect-with-me)
 
 ---
 
-## 📖 Overview
+## 🚀 Live Demo & Visual Highlights
 
-Designed and built from the ground up using clean semantic **HTML5**, **CSS3**, and **vanilla JavaScript**, this portfolio is tailored for speed, accessibility, and smooth user experience across desktops, tablets, and smartphones.
-
-It highlights my experience as a Computer Science Engineering student at **The National Institute of Engineering (Batch of 2026)**, focusing on building scalable AI/ML pipelines, cloud infrastructure, and data workflows.
-
----
-
-## ✨ Key Features
-
-- **⚡ Lightweight & Blazing Fast:** Built with pure vanilla technologies—zero heavy runtime frameworks or bloated dependencies.
-- **📱 Fully Responsive:** Dedicated media queries (`mediaqueries.css`) guarantee an optimal viewing experience on screens of all sizes (mobile, tablet, desktop).
-- **🍔 Interactive Navigation:** Desktop navigation bar alongside an animated hamburger menu with smooth transitions on mobile viewports.
-- **📄 Downloadable Resume / CV:** Direct one-click access to download the latest curriculum vitae (`resume100.pdf`).
-- **🔗 Direct Links to Work & Demos:** Integrated GitHub and live demo links for featured engineering projects.
-- **🎨 Minimalist Modern Aesthetic:** Clean card layouts, uniform iconography, balanced typography, and intuitive scroll-anchored sections.
+- **3D Spatial AI Core:** Real-time Three.js WebGL viewport featuring a pulsing holographic icosahedron, gimbal rings, and 16 orbiting autonomous agent nodes with raycasting hover tooltips.
+- **Dark Cyber-Luxe Aesthetics:** Custom glassmorphism (`backdrop-filter: blur(16px)`), neon cyan/purple accents, ambient particle nebula, and fluid typography (`Syne`, `Inter`, `JetBrains Mono`).
+- **Web Audio API Synthesizer:** Pure native JavaScript audio synthesizer generating cybernetic soundscapes, button chimes, and swarm launch frequencies (toggleable on/off).
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Key Features & Interactions
 
-| Technology | Purpose |
+1. **🛰️ 16-Agent Orbital Swarm in 3D:** Interactive Three.js scene modeling the distributed architecture of *Multiagentsweep*. Drag to rotate 360°, scroll to zoom, hover on nodes to inspect agent roles, and switch between *Swarm*, *Neural*, and *CV Field* modes.
+2. **🧪 3 Hands-on Interactive Tech Labs:**
+   - **Multiagentsweep Swarm Simulator:** Live animated AST graph execution and streaming SSE telemetry logs in a terminal window.
+   - **Tactical Pitch Telemetry Matrix:** Click anywhere on the tactical pitch to estimate real-world metric coordinates (X, Y in meters), instantaneous sprint speed (km/h), Lucas-Kanade optical flow compensation vectors, and team jersey clustering.
+   - **MLOps Phishing Risk Analyzer:** Real-time URL threat scoring with dynamic gauge circle, Shannon entropy computation, and Kolmogorov-Smirnov (KS-test) data drift status.
+3. **💻 Interactive CLI Terminal (`Cmd+K` or `Ctrl+K`):** Full-screen developer command-line interface with built-in commands (`help`, `about`, `exp`, `projects`, `skills`, `education`, `cv`, `contact`, `clear`, `ping`).
+4. **📄 Digital Europass CV Viewer:** Dedicated modal rendering the complete official Europass Curriculum Vitae with instant print and direct PDF download options.
+5. **🔍 Filterable Skills Matrix with Live Search:** Instant multi-category filtering (`AI/ML & CV`, `Backend & Systems`, `DevOps & Cloud`, `Languages`) with real-time substring search.
+6. **📋 1-Click Clipboard Utilities:** Instant copy for email (`chaitanyapk2109@gmail.com`) and phone (`+91 6362126748`) with animated toast notifications.
+
+---
+
+## 💼 Work Experience & Projects
+
+### 🏢 Work Experience
+- **Tool Developer Intern — BorgWarner** (08/01/2026 – Present | Bangalore, India)
+  - **License Management System:** Python, C# .NET, and PostgreSQL server with offline caching and session tracking.
+  - **Application Store Portal:** Next.js and PostgreSQL web portal with MFA, approval workflows, and automated email notifications.
+  - **PolarAI Platform:** AI automation integrated with Polarion ALM and Azure OpenAI for automated requirements and test case generation.
+  - **Enterprise Python SDK:** Reusable components communicating with Polarion WSDL/SOAP services.
+  - **High-Throughput Pipelines:** Token optimization, conversation memory management, and XML synchronization pipelines.
+
+### 🌟 Featured Projects
+1. **Multiagentsweep — Autonomous Multi-Agent Codebase Comprehension Platform**
+   - 16-agent distributed platform with deterministic AST Code Property Graphs.
+   - -85% LLM inference cost reduction via task down-routing, -30% static analysis false positives.
+   - Validated by 134 automated unit & integration tests.
+   - [GitHub Repo](https://github.com/Chaitanya210904/Multiagentsweep.git)
+2. **Computer Vision System for Automated Football Analytics & Player Telemetry**
+   - Tactical broadcast video analysis using Ultralytics YOLO, ByteTrack, and Lucas-Kanade optical flow.
+   - Perspective homography mapping to real-world metric pitch coordinates; 2-tier K-Means jersey color clustering.
+   - [GitHub Repo](https://github.com/Chaitanya210904/Football-Player-Analysis.git)
+3. **End-to-End Phishing Detection & MLOps Platform**
+   - 97.6% F1-score ensemble classifier analyzing 30+ URL/network features.
+   - Automated ETL via MongoDB Atlas, Kolmogorov-Smirnov data drift detection, MLflow/DagsHub, containerized FastAPI REST API.
+   - [GitHub Repo](https://github.com/Chaitanya210904/Networksecurity.git)
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+| Layer | Technologies |
 | :--- | :--- |
-| **HTML5** | Semantic structure, document outlines, accessibility metadata |
-| **CSS3** | Modern flexbox layouts, transitions, custom styling, card designs |
-| **Media Queries** | Dedicated responsive breakpoints for mobile and desktop screens |
-| **Vanilla JavaScript** | DOM manipulation, mobile menu drawer toggle |
-| **Google Fonts / Web Icons** | Clean typography and consistent visual cues |
+| **3D & Graphics** | Three.js (r128), WebGL, OrbitControls, Custom Shaders & Raycasting |
+| **Audio** | HTML5 Web Audio API (native oscillator sound synthesis) |
+| **Frontend Core** | HTML5 Semantic Architecture, CSS3 Custom Properties, Vanilla ES6+ |
+| **Typography** | Syne (Display), Inter (Body), JetBrains Mono (Code & Telemetry) |
+| **Styling** | Glassmorphism, CSS Grid, Flexbox, Dynamic Gradient Mesh, Ambient Orbs |
+| **Responsive** | Mobile Drawer Navigation, Fluid clamp() Scaling, Dedicated Breakpoints |
 
 ---
 
@@ -60,114 +92,43 @@ It highlights my experience as a Computer Science Engineering student at **The N
 
 ```text
 portfolio/
-├── README.md               # Project documentation
-├── index.html              # Main HTML markup and structure
-├── style.css               # Core styling, layout, typography, and themes
-├── mediaqueries.css        # Responsive breakpoints and mobile navigation
-├── script.js               # Interactive functionality (e.g., hamburger menu toggle)
-└── assets/                 # Images, icons, and document assets
-    ├── profile-pic.png     # Hero profile picture
+├── README.md               # Comprehensive documentation & architecture guide
+├── index.html              # Main HTML markup, 3D canvas viewport & modals
+├── style.css               # Cyber-luxe design system, tokens & glassmorphism
+├── mediaqueries.css        # Responsive layout breakpoints (Desktop, Tablet, Mobile)
+├── script.js               # Three.js 3D engine, Web Audio synth, Simulators & Terminal
+└── assets/                 # Graphics, images & documents
+    ├── multiagentsweep.jpg # Multiagentsweep 16-agent dashboard visual
+    ├── football-analytics.jpg # Football computer vision tactical screen visual
+    ├── project-1.png       # Phishing detection MLOps preview
+    ├── profile-pic.png     # Hero profile portrait
     ├── about-pic.png       # About section photo
-    ├── project-1.png       # Phishing Detection preview
-    ├── project-2.png       # Blood Bank Management preview
-    ├── project-3.png       # Automated Trading Call preview
-    ├── resume100.pdf       # Curriculum Vitae
-    ├── checkmark.png       # Skill list bullets
-    ├── arrow.png           # Scroll navigation icon
-    ├── email.png           # Contact email icon
-    ├── linkedin.png        # LinkedIn logo
-    └── github.png          # GitHub logo
+    └── resume100.pdf       # Curriculum Vitae (PDF)
 ```
 
 ---
 
-## 🚀 Quick Start / Local Setup
+## ⚡ Quick Start / Local Setup
 
-You do not need to install complex build tools, compilers, or package managers to run or modify this project.
+No heavy bundler or npm installation required. Run with any local HTTP server:
 
-### 1. Clone the Repository
 ```bash
+# Clone the repository
 git clone https://github.com/Chaitanya210904/portfolio.git
 cd portfolio
+
+# Start Python HTTP server
+python3 -m http.server 8080
 ```
 
-### 2. Run Locally
-
-#### Option A: Direct Browser Preview
-Double-click `index.html` or open it with your browser:
-```bash
-# macOS
-open index.html
-
-# Linux
-xdg-open index.html
-
-# Windows
-start index.html
-```
-
-#### Option B: Using a Lightweight Local HTTP Server (Recommended)
-Using Python:
-```bash
-# Python 3
-python -m http.server 8000
-```
-Then visit [http://localhost:8000](http://localhost:8000) in your browser.
-
-Using VS Code:
-- Install the **Live Server** extension.
-- Right-click `index.html` and click **"Open with Live Server"**.
-
----
-
-## 💻 Portfolio Sections
-
-1. **Hero / Profile:**
-   - Introduction, title (**Data Enthusiast & MLOps / AI Builder**).
-   - Action buttons: *Download CV* & *Contact Info*.
-   - Direct social shortcuts to LinkedIn & GitHub.
-2. **About Me:**
-   - Academic background: B.E. in Computer Science Engineering at *The National Institute of Engineering (2026)*.
-   - Core summary of expertise in end-to-end data workflows, cloud AI pipelines, and automation.
-3. **Skills & Experience:**
-   - **Software & Tools:** Git, GitHub, MLflow, AWS, Tableau, MS Excel, CI/CD pipelines, Docker.
-   - **Development & DB:** HTML5, CSS3, React, Django, MySQL.
-   - **Machine Learning & Data:** Python, Pandas, NumPy, Scikit-learn (Hyperparameter tuning with GridSearchCV).
-4. **Featured Projects:**
-   - Detailed project cards with screenshots, GitHub repository links, and live demos.
-5. **Contact Me:**
-   - Quick-contact links via verified email and LinkedIn profile.
-
----
-
-## ⭐ Featured Projects Highlighted
-
-| Project | Description | Source / Demo |
-| :--- | :--- | :--- |
-| **Phishing Website Automation** | End-to-end cloud-ready phishing detection pipeline leveraging MLOps, Docker, AWS, and FastAPI for automated threat detection and data integrity. | [GitHub Repo](https://github.com/Chaitanya210904/Networksecurity) |
-| **Blood Bank Management System** | Full-fledged management platform to organize donor registrations, real-time blood stock tracking, and recipient request workflows. | [GitHub Repo](https://github.com/) |
-| **Automated Trading Call (GoQuant)** | Algorithmic trading call execution system integrating quantitative signals with automated workflows. | [GitHub Repo](https://github.com/Chaitanya210904/goquant) &bull; [Live Demo Video](https://drive.google.com/file/d/1bnrZcgaXmpH3hGSnQ8nqiqor71S4YpCW/view?usp=sharing) |
-
----
-
-## 📱 Responsive Design
-
-The portfolio utilizes responsive breakpoints defined in `mediaqueries.css`:
-- **Desktop View (`> 1200px`):** Full horizontal navigation bar, multi-column grid layouts, and expansive hero section.
-- **Tablet / Medium View (`<= 1200px`):** Adjusted container margins, stacked layouts for about details and skill cards.
-- **Mobile View (`<= 600px`):** Hamburger slide-out drawer, single-column touch-friendly cards, and optimized font sizes.
+Open `http://localhost:8080` in any modern web browser.
 
 ---
 
 ## 📫 Connect With Me
 
-- **👤 Name:** Chaitanyaprasad Kulkarni
-- **💼 LinkedIn:** [linkedin.com/in/chaitanyaprasad210904](https://www.linkedin.com/in/chaitanyaprasad210904/)
-- **🐙 GitHub:** [@Chaitanya210904](https://github.com/Chaitanya210904)
-- **📧 Email:** [chaitanyaprasadkulkarni4@gmail.com](mailto:chaitanyaprasadkulkarni4@gmail.com)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE) — you are free to use this template as inspiration for your own portfolio.
+- **Email:** [chaitanyapk2109@gmail.com](mailto:chaitanyapk2109@gmail.com)
+- **Phone:** (+91) 6362126748 / (+91) 9110693938
+- **LinkedIn:** [linkedin.com/in/chaitanyaprasad210904](https://www.linkedin.com/in/chaitanyaprasad210904/)
+- **GitHub:** [github.com/Chaitanya210904](https://github.com/Chaitanya210904)
+- **Location:** Bengaluru, Karnataka, India
